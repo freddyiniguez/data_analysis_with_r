@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="shared/jquery.js" type="text/javascript"></script>
+    <script src="shared/shiny.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="shared/shiny.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  </head>
+   
+  <body>
+    <div class="row">
+      <!-- SECTION -->
+      <!-- Distribution selection and parameters area -->
+      <div class="col-md-2">
+        <div style="margin: 20px;">
+          <p>
+          <label>Distribution type:</label><br/>
+          <select name="dist">
+            <option value="norm">Normal</option>
+            <option value="unif">Uniform</option>
+            <option value="lnorm">Log-normal</option>
+            <option value="exp">Exponential</option>
+          </select> 
+        </p>
+
+        <p>
+          <label>Number of observations:</label><br /> 
+          <input type="number" name="n" value="500" min="1" max="1000" />
+        </p>  
+        
+        <button type="button" class="btn btn-primary">Simulate</button>
+        </div>
+      </div>
+      
+      <!-- SECTION -->
+      <!-- Ploting area -->
+      <div class="col-md-10">
+        <div class="panel panel-primary" style="margin: 20px;">
+          <div class="panel-heading">
+            <h3 class="panel-title">Práctica 03 - Algoritmo de Simulación de Distribuciones</h3>
+          </div>
+          
+          <div class="panel-body">
+            <pre id="summary" class="shiny-text-output"></pre> 
+    
+            <div id="plot" class="shiny-plot-output" style="width: 100%; height: 400px"></div> 
+    
+            <!-- 
+            <div id="table" class="shiny-html-output"></div>
+            -->
+          </div>
+          
+          <div class="panel-footer clearfix">
+            <div class="row">
+              <p align="center">Análisis de Datos con Lenguajes de Programación Estadísticos</p>
+              <button type="button" class="btn btn-primary pull-right" style="margin-right: 10px; margin-left: 10px;">Save</button>
+              <button type="button" class="btn btn-primary pull-right">Print</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div> <!-- /row -->
+   
+  </body>
+</html>
