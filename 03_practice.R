@@ -25,6 +25,7 @@ for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
   binomial_dist <- rbinom(n, size=100, prob=0.25)
   binomial_dist_title <- paste("Distribucion Binomial con n =", n, sep=" ", collapse=" ")
   barplot(binomial_dist, main=binomial_dist_title, col="green")
+  lines(binomial_dist, col="black", lwd=3)
 }
 
 # CAUCHY (C)
@@ -72,6 +73,7 @@ for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
   geometrica_dist <- rgeom(n, prob=0.25)
   geometrica_dist_title <- paste("Distribucion Geometrica con n =", n, sep=" ", collapse=" ")
   barplot(geometrica_dist, main=geometrica_dist_title, col="green")
+  lines(geometrica_dist, col="black", lwd=3)
 }
 
 # HIPERGEOMETRICA (D)
@@ -80,6 +82,7 @@ for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
   hypergeometrica_dist <- rhyper(nn=n, m=10, n=5, k=3)
   hypergeometrica_dist_title <- paste("Distribucion Hipergeometrica con n =", n, sep=" ", collapse=" ")
   barplot(hypergeometrica_dist, main=hypergeometrica_dist_title, col="green")
+  lines(hypergeometrica_dist, col="black", lwd=3)
 }
 
 # LOGISTICA (C)
@@ -103,6 +106,7 @@ for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
   binomialneg_dist <- rnbinom(n, size=100, prob=0.25)
   binomialneg_dist_title <- paste("Distribucion Binomial Negativa con n =", n, sep=" ", collapse=" ")
   barplot(binomialneg_dist, main=binomialneg_dist_title, col="green")
+  lines(binomialneg_dist, col="black", lwd=3)
 }
 
 # NORMAL (C)
@@ -142,4 +146,12 @@ for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
   poisson_dist <- rpois(n, lambda=12)
   poisson_dist_title <- paste("Distribucion Poisson con n =", n, sep=" ", collapse=" ")
   barplot(poisson_dist, main=poisson_dist_title, col="green")
+  lines(poisson_dist, col="black", lwd=3)
 }
+
+# Para todas las opciones graficas (como botones para guardar, imprimir, simular, cajas
+# de seleccion, etc) es posible utilizar el framework Shiny, el cual permite conectar
+# aplicaciones HTML con R.
+# El siguiente es un ejemplo de implementacion con Shiny.
+options(browser="/usr/bin/open -a 'Google Chrome'")
+browseURL("https://freddyiniguez.shinyapps.io/03_practice/")
