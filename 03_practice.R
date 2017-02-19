@@ -1,19 +1,9 @@
-# Práctica 03
+# Practica 03
 # Equipo:
 #     - Chaires, Karina
-#     - Íñiguez, Freddy
+#     - Iniguez, Freddy
 
 # ------------- VARIABLES ------------- #
-n1 = 5
-n2 = 10
-n3 = 20
-n4 = 30
-n5 = 50
-n6 = 100
-n7 = 200
-n8 = 500
-n9 = 1000
-
 par(mfrow = c(3,3))
 
 media = 47.3
@@ -26,31 +16,22 @@ quantiles <- quantile(x <- rnorm(100))
 pbeta(quantiles)
 
 # BINOMIAL (D)
-# Gráfico de barras, color verde
-binomial_dist <- rbinom(n1, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 5", col = "green")
-binomial_dist <- rbinom(n2, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 10", col = "green")
-binomial_dist <- rbinom(n3, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 20", col = "green")
-binomial_dist <- rbinom(n4, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 30", col = "green")
-binomial_dist <- rbinom(n5, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 50", col = "green")
-binomial_dist <- rbinom(n6, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 100", col = "green")
-binomial_dist <- rbinom(n7, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 200", col = "green")
-binomial_dist <- rbinom(n8, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 500", col = "green")
-binomial_dist <- rbinom(n9, 100, 0.25)
-barplot(binomial_dist, main = "Distribución Binomial con n = 500", col = "green")
+for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
+  binomial_dist <- rbinom(n, size = 100, prob = 0.25)
+  binomial_dist_title <- paste("Distribucion Binomial con n =", n, sep=" ", collapse=" ")
+  barplot(binomial_dist, main=binomial_dist_title, col="green")
+}
 
 # CAUCHY (C)
 # Histograma, color azul
 
 # CHI-CUADRADA (C)
-# Histograma, color azul
+for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
+  chicuadrada_dist <- rchisq(n, df=7)
+  chicuadrada_dist_title <- paste("Distribucion Chi-cuadrada con n =", n, sep=" ", collapse=" ")
+  hist(chicuadrada_dist, probability=TRUE, main=chicuadrada_dist_title, col="blue")
+  lines(density(chicuadrada_dist, adjust=2), col="black", lwd=3)
+}
 
 # EXPONENCIAL (C)
 # Histograma, color azul
@@ -61,50 +42,47 @@ barplot(binomial_dist, main = "Distribución Binomial con n = 500", col = "green
 # GAMMA (C)
 # Histograma, color azul
 
-# GEOMÉTRICA (D)
-# Gráfico de barras, color verde
+# GEOM??TRICA (D)
+# Gr??fico de barras, color verde
 
-# HIPERGEOMÉTRICA (D)
-# Gráfico de barras, color verde
+# HIPERGEOM??TRICA (D)
+# Gr??fico de barras, color verde
 
-# LOGÍSTICA (C)
+# LOG??STICA (C)
 # Histograma, color azul
 
 # LOGNORMAL (C)
 # Histograma, color azul
 
 # BINOMIAL NEGATIVA (D)
-# Gráfico de barras, color verde
+# Grafico de barras, color verde
 
 # NORMAL (C)
-# Histograma, color azul
-normal_dist <- rnorm(n1, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 5", col = "blue")
-normal_dist <- rnorm(n2, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 10", col = "blue")
-normal_dist <- rnorm(n3, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 20", col = "blue")
-normal_dist <- rnorm(n4, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 30", col = "blue")
-normal_dist <- rnorm(n5, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 50", col = "blue")
-normal_dist <- rnorm(n6, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 100", col = "blue")
-normal_dist <- rnorm(n7, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 200", col = "blue")
-normal_dist <- rnorm(n8, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 500", col = "blue")
-normal_dist <- rnorm(n9, mean = media, sd = desviacion_estandar)
-hist(normal_dist, main = "Distribución normal con n = 1000", col = "blue")
+for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
+  normal_dist <- rnorm(n, mean=media, sd=desviacion_estandar)
+  normal_dist_title <- paste("Distribucion normal con n =", n, sep=" ", collapse=" ")
+  hist(normal_dist, probability=TRUE, main=normal_dist_title, col="blue")
+  lines(density(normal_dist, adjust=2), col="black", lwd=3)
+}
 
 # t-STUDENT (C)
-# Histograma, color azul
+for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
+  tstudent_dist <- rt(n, df=7)
+  tstudent_dist_title <- paste("Distribucion t-Student con n =", n, sep=" ", collapse=" ")
+  hist(tstudent_dist, probability=TRUE, main=tstudent_dist_title, col="blue")
+  lines(density(tstudent_dist, adjust=2), col="black", lwd=3)
+}
 
 # UNIFORME (C)
-# Histograma, color azul
+for(n in c(5, 10, 20, 30, 50, 100, 200, 500, 1000)){
+  uniform_dist <- runif(n, min=0, max=10)
+  uniform_dist_title <- paste("Distribucion uniforme con n =", n, sep=" ", collapse=" ")
+  hist(uniform_dist, probability=TRUE, main=uniform_dist_title, col="blue")
+  lines(density(uniform_dist, adjust=2), col="black", lwd=3)
+}
 
 # WEIBULL (C)
 # Histograma, color azul
 
 # POISSON (D)
-# Gráfico de barras, color verde
+# Gr??fico de barras, color verde
